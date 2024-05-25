@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: move 35s linear infinite, colorChange 6s infinite;
+  animation-delay: calc(var(--i) * -1.5s);
+}
+
+.circle:nth-child(2) {
+  background-color: red;
+}
+.circle:nth-child(3) {
+  background-color: orange;
+}
+.circle:nth-child(4) {
+  background-color: yellow;
+}
+.circle:nth-child(5) {
+  background-color: green;
+}
+.circle:nth-child(6) {
+  background-color: blue;
+}
+
+.head {
+  background-color: black;
+}
+
+.head::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.head::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@keyframes move {
+  0%,
+  100% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: 260px;
+  }
+  50% {
+    top: 260px;
+    left: 260px;
+  }
+  75% {
+    top: 260px;
+    left: 0;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
